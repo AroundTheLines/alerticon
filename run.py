@@ -32,6 +32,7 @@ def handle_recording():
     """Play back the caller's recording."""
  
     recording_url = request.values.get("RecordingUrl", None)
+    print recording_url
     resp = twilio.twiml.Response()
     resp.say("Fuck fuck fuck... take a listen to what you howled.")
     resp.play(recording_url)
