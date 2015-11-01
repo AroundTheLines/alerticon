@@ -35,7 +35,7 @@ def handle_recording():
  
     recording_url = request.values.get("RecordingUrl", None)
     resp = twilio.twiml.Response()
-    resp.say("Thanks for howling... take a listen to what you howled.")
+    resp.say("Fuck fuck fuck... take a listen to what you howled.")
     resp.play(recording_url)
     resp.say("This howl was encoded at the url: " + recording_url)
     resp.say("Goodbye.")
