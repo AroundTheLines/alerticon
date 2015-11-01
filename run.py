@@ -31,7 +31,7 @@ def hello_monkey():
 """ 
 @app.route("/handle-key", methods=['GET', 'POST'])
 def handle_key():
-    """Handle key press from a user."""
+    Handle key press from a user.
  
     digit_pressed = request.values.get('Digits', None)
     if digit_pressed == "1":
