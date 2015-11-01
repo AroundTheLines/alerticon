@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect
-import wget
 import twilio.twiml
+import wget
  
 app = Flask(__name__)
  
