@@ -27,31 +27,8 @@ def hello_monkey():
     resp.record(maxLength="10", action="/handle-recording")
  
     return str(resp)
- 
-""" 
-@app.route("/handle-key", methods=['GET', 'POST'])
-def handle_key():
-    Handle key press from a user.
- 
-    digit_pressed = request.values.get('Digits', None)
-    if digit_pressed == "1":
-        resp = twilio.twiml.Response()
-        # Dial (310) 555-1212 - connect that number to the incoming caller.
-        resp.dial("+13105551212")
-        # If the dial fails:
-        resp.say("The call failed, or the remote party hung up. Goodbye.")
- 
-        return str(resp)
- 
-    elif digit_pressed == "2":
-        resp = twilio.twiml.Response()
 
-        return str(resp)
- 
-    # If the caller pressed anything but 1, redirect them to the homepage.
-    else:
-        return redirect("/")
-"""
+
 @app.route("/handle-recording", methods=['GET', 'POST'])
 def handle_recording():
     """Play back the caller's recording."""
@@ -61,6 +38,7 @@ def handle_recording():
     resp = twilio.twiml.Response()
     resp.say("Thanks for howling... take a listen to what you howled.")
     resp.play(recording_url)
+    resp.say("This howl was encoded at the url: " + recording_url)
     resp.say("Goodbye.")
     return str(resp)
  
