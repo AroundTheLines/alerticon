@@ -19,11 +19,9 @@ def hello_monkey():
  
     resp = twilio.twiml.Response()
     # Greet the caller by name
-    resp.say("Hello " + caller)
-    # Play an mp3
-    resp.play("http://demo.twilio.com/hellomonkey/monkey.mp3")
+    resp.say("Hello, this is 9 1 1 emergency services but not actually")
  
-    resp.say("Record your monkey howl after the tone.")
+    resp.say("Record your concern after the tone")
     resp.record(maxLength="10", action="/handle-recording")
  
     return str(resp)
