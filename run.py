@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect
+import wget
 import twilio.twiml
  
 app = Flask(__name__)
@@ -36,12 +37,14 @@ def handle_recording():
     resp = twilio.twiml.Response()
     resp.say("Fuck fuck fuck... take a listen to what you howled.")
     resp.play(recording_url)
+    filename = wget.download(recording_url)
     #We can curl the url here and force it into a temp.wav
     #Using "curl recording_url -o temp.wav -s"
     #Alternatively we can use Unix piping with
     #"curl -s recording_url | whatever_function_to_get_stuff_we_want that_functions_arguments"
     #more examples: http://www.compciv.org/recipes/cli/downloading-with-curl/
-    resp.say("This howl was encoded at the url: " + recording_url)
+    resp.say("This howl was encoded somewhere")
+    resp.play(filename)
     resp.say("Goodbye.")
     return str(resp)
  
