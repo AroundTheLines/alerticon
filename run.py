@@ -22,7 +22,7 @@ def hello_monkey():
     resp.say("Hello, this is 9 1 1 emergency services but not actually")
  
     resp.say("Record your concern after the tone")
-    resp.record(maxLength="10", action="/handle-recording")
+    resp.record(maxLength="5", action="/handle-recording")
  
     return str(resp)
 
@@ -36,6 +36,11 @@ def handle_recording():
     resp = twilio.twiml.Response()
     resp.say("Fuck fuck fuck... take a listen to what you howled.")
     resp.play(recording_url)
+    #We can curl the url here and force it into a temp.wav
+    #Using "curl recording_url -o temp.wav -s"
+    #Alternatively we can use Unix piping with
+    #"curl -s recording_url | whatever_function_to_get_stuff_we_want that_functions_arguments"
+    #more examples: http://www.compciv.org/recipes/cli/downloading-with-curl/
     resp.say("This howl was encoded at the url: " + recording_url)
     resp.say("Goodbye.")
     return str(resp)
