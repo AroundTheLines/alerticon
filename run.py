@@ -1,6 +1,9 @@
 from flask import Flask, request, redirect
 import twilio.twiml
+<<<<<<< HEAD
 import requests
+=======
+>>>>>>> origin/master
 from wget import download
  
 def buildSentReq(text, api_key):
